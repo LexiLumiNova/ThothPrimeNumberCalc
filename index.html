@@ -1,0 +1,30 @@
+<html>
+  <body>
+    <h1>Thoth Prime Calculator</h1>
+    <input type="number" id="n" placeholder="Enter a number">
+    <button onclick="calculateThothPrime()">Calculate Thoth Prime</button>
+    <p id="result"></p>
+
+    <script>
+      function calculateThothPrime() {
+        const n = parseInt(document.getElementById("n").value);
+        const c = Math.E;
+        const p = Math.floor(c * Math.log(n));
+        const isPrime = checkPrime(p);
+        document.getElementById("result").innerHTML = `Thoth Prime: ${p} (Prime: ${isPrime})`;
+      }
+
+      function checkPrime(num) {
+        if (num <= 1) {
+          return "No";
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) {
+            return "No";
+          }
+        }
+        return "Yes";
+      }
+    </script>
+  </body>
+</html>
